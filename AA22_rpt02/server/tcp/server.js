@@ -5,7 +5,7 @@ var port = 3000;
 // Network connection using socket
 var server = net.createServer(function(socket) {
 	console.log("Connection from " + socket.remoteAddress);
-	socket.end("Hello AA00! from localhost:3000");
+	socket.end("Hello AA22! from localhost:3000");
 });
 
 server.listen(port, "127.0.0.1");
