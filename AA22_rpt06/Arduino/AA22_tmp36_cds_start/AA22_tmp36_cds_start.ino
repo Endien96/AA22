@@ -13,22 +13,29 @@ void setup() {
 void loop() {
    //getting the voltage reading from the temperature sensor
   int value = analogRead(TMP36_INPUT);
-  Serial.print("value = ");
-  Serial.println(value);
+//  Serial.print("value = ");
+//  Serial.println(value);
 //  Serial.print(" : ");
  
    // converting that reading to voltage
-//   float voltage = value * 5.0 * 1000;  // in mV
-//   voltage /= 1023.0; 
+   float voltage = value * 5.0 * 1000;  // in mV
+   voltage /= 1023.0; 
    
    // print out the voltage
 //   Serial.print(voltage); 
 //   Serial.print(" mV, ");
    
    // now print out the temperature
-//   float temperatureC = (voltage - 500) / 10 ;  
-//   Serial.print(temperatureC); 
+   float temperatureC = (voltage - 500) / 10 ; 
+   Serial.print(temperatureC); 
 //   Serial.println(" degrees C");
+
+  Serial.print(", ");
+
+  int cds_value = analogRead(CDS_INPUT);
+  int lux = int(luminosity(cds_value));
+
+  Serial.println(lux);
 
   delay(1000);
 }
