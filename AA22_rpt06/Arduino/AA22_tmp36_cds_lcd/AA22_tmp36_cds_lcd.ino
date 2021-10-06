@@ -20,7 +20,7 @@ void setup() {
 // 숫자를 제외한 부분들을 미리 출력시킨다.
   lcd.clear();
   lcd.setCursor(0,0);
-  lcd.print("AA00,Temp: ");
+  lcd.print("AA22,Temp: ");
   lcd.setCursor(0,1);
   lcd.print("Light:  ");
   lcd.setCursor(13,1);
@@ -56,7 +56,7 @@ void loop(){
   lcd.print(lux);
   // Serial output --> 온도,조도
   Serial.print(tempC);
-  Serial.print(",");
+  Serial.print(", ");
   Serial.println(lux);
   delay(1000);
 }
