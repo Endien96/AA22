@@ -15,7 +15,7 @@
 	<script>
 		//<!-- JAVASCRIPT CODE GOES HERE -->
 
-		Plotly.d3.csv("http://chaos.inje.ac.kr:3030/data/iot_chaos.csv", function(err, rows){
+		Plotly.d3.csv("http://localhost:3030/data/iot_s1000.csv", function(err, rows){
 
 			function unpack(rows, key) {
 				return rows.map(function(row) { return row[key]; });

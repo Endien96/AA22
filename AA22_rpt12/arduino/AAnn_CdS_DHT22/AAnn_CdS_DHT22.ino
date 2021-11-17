@@ -36,7 +36,7 @@ void loop() {
     Serial.print(",");
     Serial.println(lux);   // luminosity, int
   }  
-  delay(2000);  // 2000 msec, 0.5 Hz
+  delay(1000);  // 2000 msec, 0.5 Hz
 }
 
 //Voltage to Lux
