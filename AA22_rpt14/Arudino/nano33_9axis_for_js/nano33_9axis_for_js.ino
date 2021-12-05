@@ -18,25 +18,10 @@ void loop() {
   if(IMU.gyroscopeAvailable()) { IMU.readGyroscope(gyro_x, gyro_y, gyro_z); }
   if(IMU.magneticFieldAvailable()) { IMU.readMagneticField(mag_x, mag_y, mag_z); }
 
-
-  Serial.print("AA22-AA23, ");
-  Serial.print(accel_x);
-  Serial.print(", ");
-  Serial.print(accel_y);
-  Serial.print(", ");
-  Serial.print(accel_z);
-  Serial.print(", ");
-  Serial.print(gyro_x);
-  Serial.print(", ");
-  Serial.print(gyro_y);
-  Serial.print(", ");
-  Serial.print(gyro_z);
-  Serial.print(", ");
-  Serial.print(mag_x);
-  Serial.print(", ");
-  Serial.print(mag_y);
-  Serial.print(", ");
-  Serial.println(mag_z);
+  char buffer[100];
+  sprintf(buffer, "AA22-AA23, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f"
+                , accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z, mag_x, mag_y, mag_z);
+  Serial.println(buffer);
   
   delay(1000);
 }

@@ -50,7 +50,7 @@ void loop() {
     Serial.println(mag_z);
   }
 
-  Serial.print("\n\n\n\n\n\n\n\n\n\n\n\n");
+  Serial.print("\n\n\n\n\n");
   
   delay(1000);
 }

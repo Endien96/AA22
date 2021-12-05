@@ -11,7 +11,7 @@ var web_port = 3030;  // express port
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;  // Schema object
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/iot33imu', {  // DB name  
+mongoose.connect('mongodb://localhost:27017/project', {  // DB name  iot33rgb_202009A
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }); 
@@ -23,15 +23,19 @@ db.once('open', function callback () {
 // Schema
 var iotSchema = new Schema({
     date : String,
-    temperature : String,
-    humidity : String,
-    luminosity : String,
-    pressure : String,
-    r_ratio : String,
-    g_ratio : String,
-    b_ratio : String
+    accel_x : String,
+    accel_y : String,
+    accel_z : String,
+    gyro_x : String,
+    gyro_y : String,
+    gyro_z : String,
+    mag_x : String,
+    mag_y : String,
+    mag_z : String
+}, {
+    versionKey : false
 });
-var Sensor = mongoose.model("Sensor", iotSchema);  // sensor data model
+var Sensor = mongoose.model("Sensor",iotSchema);  // sensor data model
 
 // Web routing address
 app.get('/', function (req, res) {  // localhost:3030/
