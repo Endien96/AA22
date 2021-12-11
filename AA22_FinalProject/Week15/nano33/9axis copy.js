@@ -1,5 +1,16 @@
 // db33rgb.js
 
+
+//
+
+var express = require('express');
+var cors = require('cors');  // CORS: Cross Origin Resource Sharing
+var app = express();
+// CORS 
+app.use(cors());
+
+var web_port = 3030;
+//
 var serialport = require('serialport');
 var portName = 'COM4';  // check your COM port!!
 var port    =   process.env.PORT || 3000;  // port for DB
@@ -171,3 +182,25 @@ function getDateString() {
     toISOString().replace(/T/, ' ').replace(/Z/, '');
     return datestr;
 }
+
+// Web routing address
+app.get('/', function (req, res) {  // localhost:3030/
+  res.send('Hello Arduino nano 33 BLE IOT!');
+});
+// find all data & return them
+app.get('/iot', function (req, res) {
+    Sensor.find(function(err, data) {
+        res.json(data);
+    });
+});
+// find data by id
+app.get('/iot/:id', function (req, res) {
+    Sensor.findById(req.params.id, function(err, data) {
+        res.json(data);
+    });
+});
+
+// Express WEB
+app.use(express.static(__dirname + '/public'));  // WEB root folder
+app.listen(web_port);  // port 3030
+console.log("Express_IOT is running at port:3030, CORS powered!");
