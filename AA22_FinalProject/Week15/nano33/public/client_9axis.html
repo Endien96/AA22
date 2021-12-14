@@ -70,12 +70,6 @@
 
     socket.on('connect', function () {
         socket.on('message', function (msg) {
-
-            
-            // Display signal on web browser           
-            // ctime.innerHTML = msg[0];
-            // cdata.innerHTML = msg[1] + "," + msg[2] + "," + msg[3];
-
             // initial plot
             if(msg[0]!='' && initFlag){
                 dtda[0]=msg[0];

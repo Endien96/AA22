@@ -121,6 +121,7 @@ parser.on('data', (data) => { // call back when data is received
         readData = '';
         
         dStr = getDateString();
+
         mdata[0]=dStr;   
         mdata[1]=accel_x;   
         mdata[2]=accel_y;  
@@ -131,6 +132,7 @@ parser.on('data', (data) => { // call back when data is received
         mdata[7]=mag_x;       
         mdata[8]=mag_y;
         mdata[9]=mag_z;
+        
         //console.log(mdata);
         var axisData = new Sensor({date:dStr, accel_x:accel_x, accel_y:accel_y, accel_z:accel_z
                                             , gyro_x:gyro_x, gyro_y:gyro_y, gyro_z:gyro_z

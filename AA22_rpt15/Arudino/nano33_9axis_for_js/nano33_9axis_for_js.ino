@@ -19,7 +19,7 @@ void loop() {
   if(IMU.magneticFieldAvailable()) { IMU.readMagneticField(mag_x, mag_y, mag_z); }
 
   char buffer[100];
-  sprintf(buffer, "AA22-AA23, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f"
+  sprintf(buffer, "%.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f"
                 , accel_x, accel_y, accel_z, gyro_x, gyro_y, gyro_z, mag_x, mag_y, mag_z);
   Serial.println(buffer);
   
